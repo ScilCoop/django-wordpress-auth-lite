@@ -6,7 +6,7 @@ Introduction
 ============
 
 Allows for access in Django to a WordPress installation for checking for
-things like login status and roles / capabilities.
+things like login status.
 
 Requirements
 ============
@@ -18,12 +18,11 @@ Python Dependencies:
 WordPress Dependencies:
 
  * `root Cookie`_
- * `Members`_
 
  .. _`phpserialize`: http://pypi.python.org/pypi/phpserialize
  .. _`root Cookie`: http://wordpress.org/extend/plugins/root-cookie/
- .. _`Members`: http://wordpress.org/extend/plugins/members/
- 
+
+
 Alternatives to Root Cookie
 ---------------------------
 
@@ -77,30 +76,20 @@ Finally, add `wordpress_auth` to INSTALLED_APPS.
 
     INSTALLED_APPS = (
         # ...
-        'wordpress_auth',
+        'wordpress_auth_lite',
     )
 
 Usage
 =====
 
-To restrict a view to a certain role, simply wrap the view in the
+To restrict a view to users that are authenticated with WordPress:
 ``wordpress_requires_role`` decorator.
 
 .. sourcecode:: python
 
-    from wordpress_auth.decorators import wordpress_requires_role
+    from wordpress_auth.decorators import wordpress_login_required
 
-    @wordpress_requires_role('my_role')
-    def my_view():
-        pass
-
-You can restrict a view to a capability as well.
-
-.. sourcecode:: python
-
-    from wordpress_auth.decorators import wordpress_requires_capability
-
-    @wordpress_requires_capability('my_capability')
+    @wordpress_login_required
     def my_view():
         pass
 

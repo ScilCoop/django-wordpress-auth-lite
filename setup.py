@@ -6,14 +6,14 @@ except ImportError:
     from distutils.core import setup
 
 setup(
-    name='django-wordpress-auth',
-    version='0.1.31',
-    description='Django integration with WordPress authentication and roles / capabilities system.',
+    name='django-wordpress-auth-lite',
+    version='0.1.0',
+    description='Django integration with WordPress authentication and WITHOUT roles / capabilities system.',
     long_description=open('README.rst').read(),
     include_package_data=True,
-    url='https://github.com/dellis23/django-wordpress-auth',
+    url='https://github.com/ScilCoop/django-wordpress-auth-lite.git',
     packages=[
-        'wordpress_auth',
+        'wordpress_auth_lite',
     ],
     install_requires=[
         'Django',
