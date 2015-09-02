@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 
-from wordpress_auth.decorators import wordpress_login_required
+from wordpress_auth_lite.decorators import wordpress_login_required
 
 @wordpress_login_required
 def show_session(request):

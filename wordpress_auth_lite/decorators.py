@@ -1,7 +1,7 @@
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import redirect
 
-from wordpress_auth.utils import get_login_url
+from wordpress_auth_lite.utils import get_login_url
 
 
 def wordpress_login_required(fn, *args, **kwargs):

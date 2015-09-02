@@ -3,7 +3,7 @@ import phpserialize
 from django.db import models
 from django.utils.encoding import force_bytes
 
-from wordpress_auth import WORDPRESS_TABLE_PREFIX
+from wordpress_auth_lite import WORDPRESS_TABLE_PREFIX
 
 
 class WpOptions(models.Model):
@@ -19,7 +19,7 @@ class WpOptions(models.Model):
 
 class WpUsermeta(models.Model):
     id = models.BigIntegerField(db_column='umeta_id', primary_key=True)
-    user = models.ForeignKey('wordpress_auth.WpUsers', db_column='user_id',
+    user = models.ForeignKey('wordpress_auth_lite.WpUsers', db_column='user_id',
         related_name='meta')
     meta_key = models.CharField(max_length=765, blank=True)
     meta_value = models.TextField(blank=True)

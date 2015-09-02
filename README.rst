@@ -67,10 +67,10 @@ Make sure it's placed somewhere after the session middleware.
     MIDDLEWARE_CLASSES = (
         'django.contrib.sessions.middleware.SessionMiddleware',
         # ...
-        'wordpress_auth.middleware.WordPressAuthMiddleware',
+        'wordpress_auth_lite.middleware.WordPressAuthMiddleware',
     )
 
-Finally, add `wordpress_auth` to INSTALLED_APPS.
+Finally, add `wordpress_auth_lite` to INSTALLED_APPS.
 
 .. sourcecode:: python
 
@@ -87,7 +87,7 @@ To restrict a view to users that are authenticated with WordPress:
 
 .. sourcecode:: python
 
-    from wordpress_auth.decorators import wordpress_login_required
+    from wordpress_auth_lite.decorators import wordpress_login_required
 
     @wordpress_login_required
     def my_view():
