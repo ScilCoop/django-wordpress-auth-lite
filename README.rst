@@ -11,14 +11,17 @@ things like login status.
 Requirements
 ============
 
+WordPress and Django should be on the exactly same domain. But, if you want to use different sub-domains, you might have to modify some WordPress's constants (e.g wp-includes/default-constants.php).
+
 Python Dependencies:
 
- * `phpserialize`_
+ * `phpserialize`_ (installed automatically with pip)
 
-WordPress Dependencies:
+You need a WordPress plugin in certain cases, to share the session cookie with Django.
+It isn't mandatory if WordPress is installed on the root directory of the domain.
 
  * `root Cookie`_
-
+ 
  .. _`phpserialize`: http://pypi.python.org/pypi/phpserialize
  .. _`root Cookie`: http://wordpress.org/extend/plugins/root-cookie/
 
@@ -33,6 +36,10 @@ If you are receiving warnings using *root Cookie*, please see `this issue`_ for 
 
 Installation
 ============
+
+.. sourcecode:: bash
+
+    $ pip install django-wordpress-auth-lite
 
 Add your WordPress's auth keys and salts (found in wp-config.php) to your settings.py.
 
@@ -83,7 +90,7 @@ Usage
 =====
 
 To restrict a view to users that are authenticated with WordPress:
-``wordpress_requires_role`` decorator.
+``wordpress_login_required`` decorator.
 
 .. sourcecode:: python
 
@@ -95,5 +102,4 @@ To restrict a view to users that are authenticated with WordPress:
 
 Finally, the middleware provides access to the WordPress user via ``request.wordpress_user``.
 
-See ``models.py`` for full reference.  Some of the redundant naming conventions
-in the WordPress database have been made simpler as well.
+See ``models.py`` for full reference.
