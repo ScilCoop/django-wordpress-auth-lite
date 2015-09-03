@@ -89,7 +89,7 @@ Finally, add `wordpress_auth_lite` to INSTALLED_APPS.
 Usage
 =====
 
-To restrict a view to users that are authenticated with WordPress:
+To restrict a view to users that are authenticated with WordPress, or redirect them to the WordPress's login page otherwise:
 ``wordpress_login_required`` decorator.
 
 .. sourcecode:: python
